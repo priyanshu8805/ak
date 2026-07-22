@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Gunnu ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div id="hearts"></div>
+
+<!-- Sparkles -->
+<div id="sparkles"></div>
+
+<!-- ================= PAGE 1 ================= -->
+
+<section id="page1" class="page active">
+
+<div class="container">
+
+<img
+id="character"
+class="character"
+src="assets/waving.png"
+alt="Character">
+
+<div id="speech" class="speech">
+
+Hey Beautiful! 💕
+
+</div>
+
+<div id="giftArea" class="hidden">
+
+<img
+src="assets/gift.png"
+class="gift"
+id="gift">
+
+<p class="giftText">
+
+Open Gift 🎁
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+
+<section id="page2" class="page">
+
+<div class="container">
+
+<img
+src="assets/cake-bouquet.png"
+class="character pop">
+
+<h1>
+
+🎂 HAPPY BIRTHDAY GUNNU ❤️
+
+</h1>
+
+<p class="birthdayText">
+
+Today is all about you.
+
+<br><br>
+
+I hope your smile never fades,
+
+your dreams always come true,
+
+and your heart is always filled with happiness.
+
+<br><br>
+
+You deserve every beautiful thing this world has to offer.
+
+<br><br>
+
+<b>Happy Birthday, Princess. ❤️</b>
+
+</p>
+
+<button onclick="showPage(3)">
+
+💌 There's Something I Want To Say
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= PAGE 3 ================= -->
+
+<section id="page3" class="page">
+
+<div class="container">
+
+<img
+src="assets/sad.png"
+class="character">
+
+<div class="letter">
+
+<p id="typewriter"></p>
+
+</div>
+
+<button onclick="showPage(4)">
+
+✨ One Last Surprise
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= PAGE 4 ================= -->
+
+<section id="page4" class="page">
+
+<div class="container">
+
+<img
+src="assets/hug-heart.png"
+class="character">
+
+<h1>
+
+🌹 Happy Birthday Once Again, Akshatha ❤️
+
+</h1>
+
+<p>
+
+Thank you for everything.
+
+<br><br>
+
+You are the most beautiful part of my life ❤️
+
+</p>
+
+<button id="loveButton">
+
+❤️ Click Me
+
+</button>
+
+<h2 id="endingMessage"></h2>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
