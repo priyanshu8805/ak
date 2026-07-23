@@ -92,11 +92,7 @@ I know a lot is going on, and I behaved very stupidly.
 
 I'm really very sorry for everything I've done.
 
-I know I can't change the past, but I promise to become better.
-
-You mean the world to me, and I never want to lose your smile.
-
-Happy Birthday once again, Princess. ❤️`;
+`;
 
 let index=0;
 
