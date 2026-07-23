@@ -2,405 +2,459 @@
    GENERAL
 =========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    overflow:hidden;
-    background:linear-gradient(135deg,#ffd6e7,#ffeef5,#fff8fb);
-    height:100vh;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef5, #fff8fb);
+    color: #444;
 }
 
 /* ===========================
    PAGES
 =========================== */
 
-.page{
-    position:absolute;
-    width:100%;
-    height:100vh;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    transition:0.8s;
+.page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding: 20px 0;
+
+    z-index: 1;
 }
 
-.page.active{
-    display:flex;
+.page.active {
+    display: flex;
+    z-index: 10;
+    animation: pageFade 0.5s ease;
 }
 
-.container{
-    width:90%;
-    max-width:900px;
-    text-align:center;
-    background:rgba(255,255,255,.25);
-    backdrop-filter:blur(15px);
-    border-radius:30px;
-    padding:40px;
-    box-shadow:0 20px 40px rgba(0,0,0,.1);
+.container {
+    width: 94%;
+    max-width: 900px;
+
+    min-height: calc(100vh - 40px);
+
+    margin: auto;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ===========================
    CHARACTER
 =========================== */
 
-.character{
-    width:280px;
-    animation:float 3s ease-in-out infinite;
+.character {
+    display: block;
+
+    width: min(280px, 70vw);
+    height: auto;
+
+    max-height: 38vh;
+
+    object-fit: contain;
+
+    margin: 0 auto;
+
+    flex-shrink: 0;
+
+    animation: float 3s ease-in-out infinite;
 }
 
-.pop{
-    animation:pop .8s;
+.pop {
+    animation:
+        pop 0.8s ease,
+        float 3s ease-in-out 0.8s infinite;
 }
 
 /* ===========================
    SPEECH BUBBLE
 =========================== */
 
-.speech{
+.speech {
+    display: inline-block;
 
-    display:inline-block;
+    max-width: 90%;
 
-    background:white;
+    background: white;
 
-    padding:18px 25px;
+    padding: 16px 22px;
 
-    border-radius:20px;
+    border-radius: 20px;
 
-    margin-top:20px;
+    margin-top: 18px;
 
-    font-size:22px;
+    font-size: clamp(17px, 2.3vw, 22px);
 
-    color:#ff4d88;
+    color: #ff4d88;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* ===========================
    GIFT
 =========================== */
 
-.gift{
+.gift {
+    display: block;
 
-    width:180px;
+    width: min(170px, 45vw);
+    height: auto;
 
-    cursor:pointer;
+    margin: 22px auto 0;
 
-    animation:bounce 1.8s infinite;
+    cursor: pointer;
 
-    transition:.3s;
+    object-fit: contain;
 
+    position: relative;
+    z-index: 50;
+
+    animation: bounce 1.8s ease-in-out infinite;
+
+    transition: transform 0.3s ease;
 }
 
-.gift:hover{
-
-    transform:scale(1.08);
-
+.gift:hover {
+    transform: scale(1.08);
 }
 
-.giftText{
+.giftText {
+    margin-top: 12px;
 
-    margin-top:15px;
+    font-size: clamp(18px, 2.3vw, 22px);
 
-    font-size:22px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:#ff4d88;
-
+    color: #ff4d88;
 }
 
-.hidden{
-
-    display:none;
-
+.hidden {
+    display: none !important;
 }
 
 /* ===========================
-   BUTTON
+   BUTTONS
 =========================== */
 
-button{
+button {
+    position: relative;
+    z-index: 100;
 
-    margin-top:35px;
+    margin-top: 28px;
 
-    padding:18px 35px;
+    max-width: 100%;
 
-    border:none;
+    padding: 15px 28px;
 
-    border-radius:40px;
+    border: none;
 
-    background:#ff4d88;
+    border-radius: 40px;
 
-    color:white;
+    background: linear-gradient(135deg, #ff6f9f, #ff2f73);
 
-    font-size:18px;
+    color: white;
 
-    cursor:pointer;
+    font-family: 'Poppins', sans-serif;
 
-    transition:.3s;
+    font-size: clamp(15px, 2vw, 18px);
 
-    box-shadow:0 10px 20px rgba(255,77,136,.3);
+    font-weight: 600;
 
+    cursor: pointer;
+
+    box-shadow: 0 10px 20px rgba(255, 77, 136, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    touch-action: manipulation;
 }
 
-button:hover{
+button:hover {
+    transform: translateY(-3px);
 
-    transform:translateY(-5px);
+    box-shadow: 0 14px 25px rgba(255, 77, 136, 0.4);
+}
 
-    background:#ff2f73;
-
+button:active {
+    transform: scale(0.98);
 }
 
 /* ===========================
    HEADINGS
 =========================== */
 
-h1{
+h1 {
+    font-family: 'Pacifico', cursive;
 
-    font-family:'Pacifico',cursive;
+    color: #ff2f73;
 
-    color:#ff2f73;
+    margin-top: 20px;
 
-    margin-top:25px;
+    font-size: clamp(30px, 6vw, 55px);
 
-    font-size:55px;
+    line-height: 1.25;
 
+    overflow-wrap: anywhere;
 }
 
-h2{
+h2 {
+    margin-top: 28px;
 
-    margin-top:35px;
+    color: #ff2f73;
 
-    color:#ff2f73;
+    font-size: clamp(27px, 5vw, 40px);
 
-    font-size:40px;
+    line-height: 1.3;
 
-    font-family:'Pacifico',cursive;
-
+    font-family: 'Pacifico', cursive;
 }
 
-p{
+p {
+    margin-top: 20px;
 
-    margin-top:25px;
+    font-size: clamp(16px, 2.2vw, 21px);
 
-    font-size:21px;
+    line-height: 1.7;
 
-    line-height:1.8;
-
-    color:#444;
-
+    color: #444;
 }
 
-.birthdayText{
+.birthdayText {
+    width: 100%;
 
-    max-width:700px;
+    max-width: 700px;
 
-    margin:auto;
-
-    margin-top:25px;
-
+    margin: 20px auto 0;
 }
 
 /* ===========================
    APOLOGY BOX
 =========================== */
 
-.letter{
+.letter {
+    width: 100%;
 
-    margin:30px auto;
+    max-width: 700px;
 
-    max-width:700px;
+    min-height: 170px;
 
-    background:white;
+    margin: 24px auto 0;
 
-    padding:30px;
+    background: white;
 
-    border-radius:25px;
+    padding: 24px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    border-radius: 25px;
 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+#typewriter {
+    margin-top: 0;
+
+    white-space: pre-line;
+
+    text-align: left;
 }
 
 /* ===========================
    HEARTS
 =========================== */
 
-#hearts{
+#hearts,
+#sparkles {
+    position: fixed;
 
-    position:fixed;
+    inset: 0;
 
-    width:100%;
+    width: 100%;
+    height: 100%;
 
-    height:100%;
+    pointer-events: none;
 
-    pointer-events:none;
+    overflow: hidden;
 
-    overflow:hidden;
-
+    z-index: 0;
 }
 
-.heart{
+.heart {
+    position: absolute;
 
-    position:absolute;
+    bottom: -60px;
 
-    color:#ff5c8a;
+    color: #ff5c8a;
 
-    animation:heartFloat linear forwards;
-
-}
-
-/* ===========================
-   SPARKLES
-=========================== */
-
-#sparkles{
-
-    position:fixed;
-
-    width:100%;
-
-    height:100%;
-
-    pointer-events:none;
-
+    animation: heartFloat linear forwards;
 }
 
 /* ===========================
    ANIMATIONS
 =========================== */
 
-@keyframes float{
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
 
-0%,100%{
-
-transform:translateY(0px);
-
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-50%{
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-transform:translateY(-12px);
-
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
-@keyframes bounce{
+@keyframes pop {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
 
-0%,100%{
-
-transform:translateY(0);
-
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-50%{
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
 
-transform:translateY(-18px);
+    15% {
+        opacity: 1;
+    }
 
-}
-
-}
-
-@keyframes pop{
-
-0%{
-
-transform:scale(0);
-
-opacity:0;
-
-}
-
-100%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-
-@keyframes heartFloat{
-
-0%{
-
-transform:translateY(100vh) scale(.5);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-100px) scale(1.5);
-
-opacity:0;
-
-}
-
+    100% {
+        transform: translateY(-115vh) scale(1.4);
+        opacity: 0;
+    }
 }
 
 /* ===========================
    MOBILE
 =========================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-.character{
+    .page {
+        align-items: flex-start;
 
-width:210px;
+        padding: 12px 0;
+    }
 
+    .container {
+        width: 94%;
+
+        min-height: calc(100dvh - 24px);
+
+        padding: 20px 16px;
+
+        border-radius: 24px;
+    }
+
+    .character {
+        width: min(205px, 62vw);
+
+        max-height: 29vh;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .letter {
+        padding: 20px 16px;
+    }
 }
 
-.container{
+/* ===========================
+   SHORT LAPTOP SCREENS
+=========================== */
 
-padding:25px;
+@media (max-height: 750px) and (min-width: 769px) {
 
-}
+    .page {
+        align-items: flex-start;
+    }
 
-h1{
+    .container {
+        min-height: auto;
 
-font-size:34px;
+        margin: 10px auto;
+    }
 
-}
+    .character {
+        width: min(220px, 28vw);
 
-h2{
+        max-height: 30vh;
+    }
 
-font-size:30px;
+    h1 {
+        font-size: clamp(28px, 4vw, 44px);
+    }
 
-}
-
-p{
-
-font-size:18px;
-
-}
-
-.speech{
-
-font-size:18px;
-
-}
-
-.gift{
-
-width:140px;
-
-}
-
-button{
-
-width:100%;
-
-font-size:17px;
-
-}
-
+    p {
+        line-height: 1.55;
+    }
 }
