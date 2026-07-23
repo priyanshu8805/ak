@@ -2,178 +2,498 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>Happy Birthday Gunnu ❤️</title>
+  <title>Happy Birthday Gunnu ❤️</title>
 
-<link rel="stylesheet" href="style.css">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
+  <link rel="stylesheet" href="style.css">
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"
+  ></script>
 </head>
 
 <body>
 
-<!-- Floating Hearts -->
-<div id="hearts"></div>
+  <!-- Background Effects -->
 
-<!-- Sparkles -->
-<div id="sparkles"></div>
+  <div id="ambientHearts"></div>
 
-<!-- ================= PAGE 1 ================= -->
+  <div id="ambientSparkles"></div>
 
-<section id="page1" class="page active">
 
-<div class="container">
+  <!-- ===================================
+       PAGE 1 — BALLOON BIRTHDAY SURPRISE
+  ==================================== -->
 
-<img
-id="character"
-class="character"
-src="assets/waving.png"
-alt="Character">
+  <section
+    id="page1"
+    class="page active"
+  >
 
-<div id="speech" class="speech">
+    <div class="screen-card page1-card">
 
-Hey Beautiful! 💕
+      <img
+        id="page1Character"
+        class="character page1-character"
+        src="assets/waving.png"
+        alt="Cute waving character"
+      >
 
-</div>
+      <div
+        id="speechBubble"
+        class="speech-bubble"
+      >
+        Hey beautiful! 💕
+      </div>
 
-<div id="giftArea" class="hidden">
 
-<img
-src="assets/gift.png"
-class="gift"
-id="gift">
+      <!-- Red Balloon -->
 
-<p class="giftText">
+      <div
+        id="balloonStage"
+        class="balloon-stage hidden"
+      >
 
-Open Gift 🎁
+        <div
+          id="mainBalloon"
+          class="main-balloon"
+          role="button"
+          tabindex="0"
+          aria-label="Tap the balloon"
+        >
 
-</p>
+          <span class="balloon-shine"></span>
 
-</div>
+          <span class="balloon-knot"></span>
 
-</div>
+          <span class="balloon-string"></span>
 
-</section>
+        </div>
 
-<!-- ================= PAGE 2 ================= -->
+        <p class="tap-text">
 
-<section id="page2" class="page">
+          Tap the Balloon 🎈
 
-<div class="container">
+        </p>
 
-<img
-src="assets/cake-bouquet.png"
-class="character pop">
+      </div>
 
-<h1>
 
-🎂 HAPPY BIRTHDAY GUNNU ❤️
+      <!-- Birthday Reveal -->
 
-</h1>
+      <div
+        id="birthdayReveal"
+        class="birthday-reveal hidden"
+      >
 
-<p class="birthdayText">
+        <div class="polaroid hero-polaroid">
 
-Today is all about you.
+          <img
+            src="assets/her-photo.png"
+            alt="Birthday girl"
+          >
 
-<br><br>
+        </div>
 
-I hope your smile never fades,
+        <h1 class="birthday-title">
 
-your dreams always come true,
+          🎂 HAPPY BIRTHDAY GUNNU ❤️
 
-and your heart is always filled with happiness.
+        </h1>
 
-<br><br>
+        <button
+          id="openBirthdayBtn"
+          class="primary-btn"
+          type="button"
+        >
 
-You deserve every beautiful thing this world has to offer.
+          Open Your Birthday Surprise ✨
 
-<br><br>
+        </button>
 
-<b>Happy Birthday, Princess. ❤️</b>
+      </div>
 
-</p>
+    </div>
 
-<button onclick="showPage(3)">
+  </section>
 
-💌 There's Something I Want To Say
 
-</button>
 
-</div>
+  <!-- ===================================
+       PAGE 2 — BIRTHDAY MESSAGE
+  ==================================== -->
 
-</section>
+  <section
+    id="page2"
+    class="page"
+  >
 
-<!-- ================= PAGE 3 ================= -->
+    <div class="screen-card">
 
-<section id="page3" class="page">
+      <img
+        class="character birthday-character"
+        src="assets/cake-bouquet.png"
+        alt="Character holding cake and bouquet"
+      >
 
-<div class="container">
+      <div class="message-card birthday-message">
 
-<img
-src="assets/sad.png"
-class="character">
+        <p>
 
-<div class="letter">
+          Today is all about you.
 
-<p id="typewriter"></p>
+        </p>
 
-</div>
+        <p>
 
-<button onclick="showPage(4)">
+          I hope your smile never fades,
+          <br>
 
-✨ One Last Surprise
+          your dreams always come true,
+          <br>
 
-</button>
+          and your heart is always filled with happiness.
 
-</div>
+        </p>
 
-</section>
+        <p>
 
-<!-- ================= PAGE 4 ================= -->
+          You deserve every beautiful thing this world has to offer.
 
-<section id="page4" class="page">
+        </p>
 
-<div class="container">
+        <p>
 
-<img
-src="assets/hug-heart.png"
-class="character">
+          <strong>
+            Happy Birthday, Princess. ❤️
+          </strong>
 
-<h1>
+        </p>
 
-🌹 Happy Birthday Once Again, Akshatha ❤️
+      </div>
 
-</h1>
+      <button
+        id="toLetterBtn"
+        class="primary-btn"
+        type="button"
+      >
 
-<p>
+        💌 There's Something I Want To Say
 
-Thank you for everything.
+      </button>
 
-<br><br>
+    </div>
 
-You are the most beautiful part of my life ❤️
+  </section>
 
-</p>
 
-<button id="loveButton">
 
-❤️ Click Me
+  <!-- ===================================
+       PAGE 3 — TAP TO OPEN LETTER
+  ==================================== -->
 
-</button>
+  <section
+    id="page3"
+    class="page"
+  >
 
-<h2 id="endingMessage"></h2>
+    <div class="screen-card apology-card">
 
-</div>
+      <img
+        class="character sad-character"
+        src="assets/sad.png"
+        alt="Sad apologetic character"
+      >
 
-</section>
+      <div
+        id="letterIntro"
+        class="letter-intro"
+      >
 
-<script src="script.js"></script>
+        <p>
+
+          Before we continue...
+
+        </p>
+
+        <p>
+
+          There's something I want you to read... ❤️
+
+        </p>
+
+      </div>
+
+
+      <!-- Envelope -->
+
+      <button
+        id="envelope"
+        class="envelope"
+        type="button"
+        aria-label="Tap to open the letter"
+      >
+
+        <span class="envelope-back"></span>
+
+        <span class="envelope-paper"></span>
+
+        <span class="envelope-front"></span>
+
+        <span class="wax-seal">
+
+          ❤
+
+        </span>
+
+      </button>
+
+      <p
+        id="tapLetterText"
+        class="tap-letter-text"
+      >
+
+        ✨ Tap to Open ✨
+
+      </p>
+
+
+      <!-- Opened Letter -->
+
+      <div
+        id="openLetter"
+        class="open-letter hidden"
+      >
+
+        <p class="apology-line">
+
+          I'm sorry for every moment I made you feel hurt.
+
+        </p>
+
+        <p class="apology-line">
+
+          I know a lot is going on, and I behaved very stupidly.
+
+        </p>
+
+        <p class="apology-line">
+
+          I'm really very sorry for everything I've done.
+
+        </p>
+
+        <div class="letter-heart">
+
+          ❤️
+
+        </div>
+
+      </div>
+
+      <button
+        id="toFinalBtn"
+        class="primary-btn hidden"
+        type="button"
+      >
+
+        ✨ One Last Surprise
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===================================
+       PAGE 4 — FINAL BIRTHDAY MESSAGE
+  ==================================== -->
+
+  <section
+    id="page4"
+    class="page"
+  >
+
+    <div class="screen-card">
+
+      <img
+        id="hugCharacter"
+        class="character final-character"
+        src="assets/hug-heart.png"
+        alt="Character hugging a heart"
+      >
+
+      <h1 class="final-title">
+
+        🌹 Happy Birthday Once Again, Akshatha ❤️
+
+      </h1>
+
+      <div class="message-card final-message">
+
+        <p>
+
+          Thank you for everything.
+
+        </p>
+
+        <p>
+
+          You are the most beautiful part of my life ❤️
+
+        </p>
+
+      </div>
+
+      <button
+        id="loveBtn"
+        class="heart-btn"
+        type="button"
+      >
+
+        ❤️ Click Me
+
+      </button>
+
+      <h2
+        id="alwaysMessage"
+        class="always-message hidden"
+      >
+
+        ❤️ Always There For You ❤️
+
+      </h2>
+
+      <button
+        id="toMemoriesBtn"
+        class="primary-btn hidden"
+        type="button"
+      >
+
+        ✨ One More Thing...
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===================================
+       PAGE 5 — MEMORIES
+  ==================================== -->
+
+  <section
+    id="page5"
+    class="page memories-page"
+  >
+
+    <div class="memories-wrap">
+
+      <div class="memories-grid">
+
+
+        <!-- Memory 1 -->
+
+        <figure class="memory-polaroid memory-1">
+
+          <img
+            src="assets/memory-1.png"
+            alt="Memory 1"
+          >
+
+        </figure>
+
+
+        <!-- Memory 2 -->
+
+        <figure class="memory-polaroid memory-2">
+
+          <img
+            src="assets/memory-2.png"
+            alt="Memory 2"
+          >
+
+        </figure>
+
+
+        <!-- Memory 3 -->
+
+        <figure class="memory-polaroid memory-3">
+
+          <img
+            src="assets/memory-3.png"
+            alt="Memory 3"
+          >
+
+        </figure>
+
+
+        <!-- Memory 4 -->
+
+        <figure class="memory-polaroid memory-4">
+
+          <img
+            src="assets/memory-4.png"
+            alt="Memory 4"
+          >
+
+        </figure>
+
+
+        <!-- Memory 5 -->
+
+        <figure class="memory-polaroid memory-5">
+
+          <img
+            src="assets/memory-5.png"
+            alt="Memory 5"
+          >
+
+        </figure>
+
+      </div>
+
+
+      <!-- Final Ending Line -->
+
+      <p class="memories-ending">
+
+        A few memories, a lot of feelings, and one very special person. ❤️
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <script src="script.js"></script>
 
 </body>
 
